@@ -1,0 +1,11 @@
+{
+  "odl/ops/dense_s8_compensated.py": true,
+  "odl/ops/bf16_compensated_mm.py": true,
+  "odl/ops/dense_s8_fast.py": true,
+  "odl/ops/dense_s8_fused.py": true,
+  "odl/ops/dense_s8_minimax.py": true,
+  "research_s8_refit/ripple_ablation/recipe.py": true,
+  "research_s8_refit/ripple_ablation/recipe_hashes.json": true,
+  "research_s8_refit/ripple_ablation/experiment.json": true,
+  "research_s8_refit/ripple_ablation/trainer.py": true
+}

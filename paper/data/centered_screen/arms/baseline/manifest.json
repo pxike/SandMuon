@@ -1,0 +1,294 @@
+{
+  "actual_initial_state_sha256": "b84e8a2554ad86695d2b4c54987486858e5092b695ebd37b0d1f7b13a907b66b",
+  "arm": "baseline",
+  "artifact_policy": "no_persistent_model_weights",
+  "artifacts": {
+    "events": "/kaggle/working/sand_centered/arms/baseline/events.jsonl",
+    "manifest": "/kaggle/working/sand_centered/arms/baseline/manifest.json"
+  },
+  "campaign_id": "sand-centered-a828f9905b4f",
+  "completed_utc": "2026-10-11T11:00:26.153135Z",
+  "completion": {
+    "evaluation_steps": [
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900,
+      1000
+    ],
+    "median_update_seconds": 0.26182518600001004,
+    "official_validation_loss": 5.8719000816345215,
+    "ordered_updates": 1000,
+    "replay_abs_difference": 0.0,
+    "state_hash_after_replay": "151ef49374471c55a5bcb6290c8dc3dd8a9572ef59c40056f36cad541d305061",
+    "state_hash_before_replay": "151ef49374471c55a5bcb6290c8dc3dd8a9572ef59c40056f36cad541d305061",
+    "total_update_seconds": 268.2717864010003,
+    "train_seconds": 268.27178640100027,
+    "training_token_digest": "2636e55c3d7b5ab9115f38864720b1e70ec5d37cbe8b7dd8a11ae1bf8c010a89",
+    "validation_losses": [
+      6.994767665863037,
+      6.67514705657959,
+      6.488722801208496,
+      6.32050085067749,
+      6.196812152862549,
+      6.080665111541748,
+      6.002844333648682,
+      5.938827037811279,
+      5.901232719421387,
+      5.8719000816345215
+    ],
+    "validation_token_digest": "11a73e25a29c3591089f918c5f4307726ee4b3b01370b020b4c95aa92413a9f2",
+    "weights_saved": false
+  },
+  "data_identity": {
+    "repository": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+    "revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+    "tokenizer": "GPT-2"
+  },
+  "device": {
+    "compute_capability": [
+      7,
+      5
+    ],
+    "name": "Tesla T4",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "total_memory_bytes": 15636037632
+  },
+  "diagnostics_final": {
+    "configuration": {
+      "a_statistic_beta": 0.97,
+      "b_identity_shrinkage": 0.0,
+      "b_inverse_exponent": -0.5,
+      "b_statistic_beta": 0.97,
+      "centered_direction": false,
+      "mean_offdiagonal_strength": 1.0,
+      "scrambled_direction": false
+    },
+    "direction_commit": "after_parameter_update",
+    "gamma_by_source": {
+      "transformer.h.0.attn.c_proj.weight": 0.0,
+      "transformer.h.0.attn.q_proj.weight": 0.0,
+      "transformer.h.0.mlp.c_fc.weight": 0.0,
+      "transformer.h.0.mlp.c_proj.weight": 0.0,
+      "transformer.h.1.attn.c_proj.weight": 0.0,
+      "transformer.h.1.attn.q_proj.weight": 0.0,
+      "transformer.h.1.mlp.c_fc.weight": 0.0,
+      "transformer.h.1.mlp.c_proj.weight": 0.0,
+      "transformer.h.2.attn.c_proj.weight": 0.0,
+      "transformer.h.2.attn.q_proj.weight": 0.0,
+      "transformer.h.2.mlp.c_fc.weight": 0.0,
+      "transformer.h.2.mlp.c_proj.weight": 0.0,
+      "transformer.h.3.attn.c_proj.weight": 0.0,
+      "transformer.h.3.attn.q_proj.weight": 0.0,
+      "transformer.h.3.mlp.c_fc.weight": 0.0,
+      "transformer.h.3.mlp.c_proj.weight": 0.0
+    },
+    "gamma_max": 0.0,
+    "gamma_mean": 0.0,
+    "geometry": "diagonal_plus_activation_mean_and_centered_rank_one",
+    "matrix_parameters": 4915200,
+    "mode": "baseline",
+    "statistic_beta": 0.97,
+    "updates": 1000
+  },
+  "evaluation": {
+    "batches": 8,
+    "every_updates": 100,
+    "metric": "nats_per_gpt2_token",
+    "seed": 21337,
+    "sequences": 128,
+    "tokens": 16384
+  },
+  "from_scratch": true,
+  "initial_state_sha256": "b84e8a2554ad86695d2b4c54987486858e5092b695ebd37b0d1f7b13a907b66b",
+  "initialization_updates": 0,
+  "mode": "baseline",
+  "model": {
+    "context": 128,
+    "dropout": 0.0,
+    "family": "GPT2",
+    "head_dim": 64,
+    "heads": 5,
+    "layers": 4,
+    "vocab_size": 50257,
+    "width": 320
+  },
+  "polynomial": {
+    "arithmetic": "plain_eager_FP32; intentionally not compensated BF16",
+    "coefficients": [
+      [
+        11.062126275847973,
+        -56.051653229128085,
+        72.32081107619855
+      ],
+      [
+        4.100720073616268,
+        -2.9324183165353577,
+        0.5339692084282731
+      ],
+      [
+        3.930310192522361,
+        -2.873509793709714,
+        0.5366557527206212
+      ],
+      [
+        3.280567968245866,
+        -2.414925589994015,
+        0.48635134757825227
+      ],
+      [
+        2.282741575232451,
+        -1.6302296637355072,
+        0.40275720810675486
+      ]
+    ],
+    "margin": 1.35,
+    "multiplier": 1.0,
+    "source_manifest": "paper/s8/data/completed/s8_manifest.json",
+    "source_manifest_sha256": "91210e57a26dc89498f6fea50daf0202aa2794daf06f9408ed5ac6f950dc921f"
+  },
+  "precision": "FP32 model, gradients, optimizer states, and eager polynomial S8; intentionally differs from compensated BF16 production S8",
+  "resolved_manifest_sha256": "c575cb9c78dfcad4ebbcf52cd8ec977196d24b473cfe3e749605ea2e4fb24d0b",
+  "runtime": {
+    "compute_capability": [
+      7,
+      5
+    ],
+    "name": "Tesla T4",
+    "python": "3.13.15",
+    "torch": "2.11.0+cu128",
+    "torch_cuda": "12.8",
+    "total_memory_bytes": 15636037632
+  },
+  "seed": 1337,
+  "shards": {
+    "train": {
+      "file_bytes": 200001024,
+      "path": "/kaggle/temp/sand_centered_data/edu_fineweb_train_000001.bin",
+      "repository": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+      "revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+      "sha256": "6bb7ce7bcac8e11463433767ec3402311c7527c3d8d766e7d65ef86dc4546bb2",
+      "sha256_verified_during_prepare": true,
+      "stat": {
+        "device": 54,
+        "inode": 150264801,
+        "mtime_ns": 1791716128476586377,
+        "size": 200001024
+      },
+      "stat_at_prepare": {
+        "device": 54,
+        "inode": 150264801,
+        "mtime_ns": 1791716128476586377,
+        "size": 200001024
+      },
+      "token_count": 100000000
+    },
+    "validation": {
+      "file_bytes": 200001024,
+      "path": "/kaggle/temp/sand_centered_data/edu_fineweb_val_000000.bin",
+      "repository": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+      "revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+      "sha256": "264add43455b22a696920374ea736d8d7e80b935c6e7375188b11ff2c08bbe75",
+      "sha256_verified_during_prepare": true,
+      "stat": {
+        "device": 54,
+        "inode": 150264802,
+        "mtime_ns": 1791716130545783501,
+        "size": 200001024
+      },
+      "stat_at_prepare": {
+        "device": 54,
+        "inode": 150264802,
+        "mtime_ns": 1791716130545783501,
+        "size": 200001024
+      },
+      "token_count": 100000000
+    }
+  },
+  "source_identity": {
+    "odl/models/gpt2.py": "6b1ef7d17380d29f26ed21ec577de6e454d42fb3ab0f7ce57bd04d8371d3c27e",
+    "odl/ops/chunked_cross_entropy.py": "dbfb1582b9d596eea1db3e0407644b3be5687d1a709e827e654881918bd2af77",
+    "paper/s8/data/completed/s8_manifest.json": "91210e57a26dc89498f6fea50daf0202aa2794daf06f9408ed5ac6f950dc921f",
+    "research/render_reset/data.py": "86d973b8ea874d0012ddf15887702407e1ff6fd745c63cec4da8dcdbfbe409af",
+    "research_go_weighted_poly/centered_a_sand.py": "7781b2731024f7e651795e2214b9af94a8b6232176ec7639247f0788173a93bf",
+    "research_go_weighted_poly/sand_centered_pilot.py": "3dbe639dc8ff6a0a29d30b1e117e693ea075b5e14f5be048b83acff3e2214f5f"
+  },
+  "started_utc": "2026-10-11T10:55:47.251487Z",
+  "status": "complete",
+  "training": {
+    "aux_betas": [
+      0.9,
+      0.999
+    ],
+    "aux_lr_ratio": 0.1,
+    "aux_weight_decay": 0.01,
+    "b_identity_shrinkage": 0.0,
+    "b_inverse_exponent": -0.5,
+    "centered_direction": false,
+    "clip_norm": 1.0,
+    "cosine_floor": 0.1,
+    "effective_batch": 16,
+    "lr": 0.01,
+    "matrix_weight_decay": 0.0,
+    "mean_offdiagonal_strength": 1.0,
+    "microbatch": 2,
+    "momentum": 0.8,
+    "optimizer": "CenteredActivationSAND",
+    "optimizer_layout": {
+      "adamw_groups": [
+        {
+          "betas": [
+            0.9,
+            0.999
+          ],
+          "parameter_count": 16140480,
+          "parameter_tensors": 44,
+          "weight_decay": 0.01
+        }
+      ],
+      "auxiliary_parameter_count": 16140480,
+      "auxiliary_parameter_tensors": 44,
+      "matrix_parameter_count": 4915200,
+      "matrix_parameter_names": [
+        "transformer.h.0.attn.c_proj.weight",
+        "transformer.h.0.attn.k_proj.weight",
+        "transformer.h.0.attn.q_proj.weight",
+        "transformer.h.0.attn.v_proj.weight",
+        "transformer.h.0.mlp.c_fc.weight",
+        "transformer.h.0.mlp.c_proj.weight",
+        "transformer.h.1.attn.c_proj.weight",
+        "transformer.h.1.attn.k_proj.weight",
+        "transformer.h.1.attn.q_proj.weight",
+        "transformer.h.1.attn.v_proj.weight",
+        "transformer.h.1.mlp.c_fc.weight",
+        "transformer.h.1.mlp.c_proj.weight",
+        "transformer.h.2.attn.c_proj.weight",
+        "transformer.h.2.attn.k_proj.weight",
+        "transformer.h.2.attn.q_proj.weight",
+        "transformer.h.2.attn.v_proj.weight",
+        "transformer.h.2.mlp.c_fc.weight",
+        "transformer.h.2.mlp.c_proj.weight",
+        "transformer.h.3.attn.c_proj.weight",
+        "transformer.h.3.attn.k_proj.weight",
+        "transformer.h.3.attn.q_proj.weight",
+        "transformer.h.3.attn.v_proj.weight",
+        "transformer.h.3.mlp.c_fc.weight",
+        "transformer.h.3.mlp.c_proj.weight"
+      ],
+      "matrix_parameter_tensors": 24
+    },
+    "refresh_interval": 1,
+    "scrambled_direction": false,
+    "statistic_beta_a": 0.97,
+    "statistic_beta_b": 0.97,
+    "steps": 1000,
+    "warmup": 50
+  }
+}

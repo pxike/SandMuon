@@ -1,0 +1,49 @@
+{
+  "architecture": "transformer",
+  "best_adjusted_objective_loss_minus_mean_reward": -2.7186474800109863,
+  "best_evaluation_mean_adjusted_reward": 2.7186474800109863,
+  "best_evaluation_mean_raw_aesthetic_score": 3.125479221343994,
+  "elapsed_seconds": 30899.891,
+  "last_adjusted_objective_loss_minus_mean_reward": -2.5312259197235107,
+  "last_evaluation_mean_adjusted_reward": 2.5312259197235107,
+  "last_evaluation_mean_raw_aesthetic_score": 2.936769962310791,
+  "learning_rate_schedule": {
+    "end": 0.01,
+    "start": 0.5,
+    "steps": 2000,
+    "then": "hold at end rate",
+    "type": "cosine"
+  },
+  "optimizer": "sandmuon",
+  "optimizer_provenance": {
+    "activation_statistics": "exact flattened Linear input diagonal second moments",
+    "attention_statistics": "K/V activation moments share Q projection statistics",
+    "auxiliary_optimizer": "canonical AdamW, LR ratio .1",
+    "auxiliary_parameters": 183744,
+    "canonical_class": "odl.optim.diagonal_weighted_pe.DiagonalWeightedPE",
+    "canonical_step_reused": true,
+    "cotangent_statistics": "real-loss Linear output diagonal second moments",
+    "matrix_layout": "native transformer Linear weight matrices",
+    "matrix_momentum": 0.8,
+    "matrix_parameters": 12386304,
+    "optimizer": "ODL SAND-Muon on transformer Linear layers",
+    "s8_backend": "same S8 polynomial in FP16 CUDA GEMMs (Turing fallback)",
+    "statistics_beta": 0.97,
+    "transformer_linear_matrices": 42
+  },
+  "parameter_count": 12570048,
+  "penalties": {
+    "flat_penalty_max_score_units": 2.0,
+    "flat_std_floor": 0.06,
+    "near_black_area_penalty_max_score_units": 2.0,
+    "near_black_fraction_floor": 0.5,
+    "near_black_luminance_threshold": 0.05,
+    "noise_high_frequency_floor": 0.2,
+    "noise_metric": "high-frequency energy excess times spectral-flatness gate",
+    "noise_penalty_max_score_units": 2.0
+  },
+  "representation": "pixel",
+  "score_objective": "maximize mean LAION aesthetic score minus flat-color, near-black-area, and noise-like penalties",
+  "status": "complete",
+  "steps": 10000
+}

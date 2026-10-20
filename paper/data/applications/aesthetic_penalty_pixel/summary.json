@@ -1,0 +1,49 @@
+{
+  "best_adjusted_objective_loss_minus_mean_reward": -1.8601040840148926,
+  "best_evaluation_mean_adjusted_reward": 1.8601040840148926,
+  "best_evaluation_mean_raw_aesthetic_score": 3.183201313018799,
+  "elapsed_seconds": 16768.049,
+  "last_adjusted_objective_loss_minus_mean_reward": -1.1854559183120728,
+  "last_evaluation_mean_adjusted_reward": 1.1854559183120728,
+  "last_evaluation_mean_raw_aesthetic_score": 2.628035545349121,
+  "learning_rate_schedule": {
+    "end": 0.01,
+    "start": 0.5,
+    "steps": 2000,
+    "then": "hold at end rate",
+    "type": "cosine"
+  },
+  "optimizer": "sandmuon",
+  "optimizer_provenance": {
+    "activation_statistics": "exact input-patch diagonal second moments",
+    "auxiliary_optimizer": "canonical AdamW, LR ratio .1",
+    "auxiliary_parameters": 41987,
+    "canonical_class": "odl.optim.diagonal_weighted_pe.DiagonalWeightedPE",
+    "canonical_step_reused": true,
+    "capture_path": "bound forward wrapper; covers module() and direct module.forward()",
+    "conv_layers": 15,
+    "cotangent_statistics": "real-loss output-channel diagonal second moments",
+    "matrix_blocks": 1038,
+    "matrix_layout": "one [out/group, in/group*kh*kw] matrix per Conv group",
+    "matrix_momentum": 0.8,
+    "matrix_parameters": 12726272,
+    "optimizer": "ODL SAND-Muon with IRO grouped-Conv adapter",
+    "s8_backend": "same S8 polynomial in FP16 CUDA GEMMs (T4 fallback)",
+    "statistics_beta": 0.97
+  },
+  "parameter_count": 12768259,
+  "penalties": {
+    "flat_penalty_max_score_units": 2.0,
+    "flat_std_floor": 0.06,
+    "near_black_area_penalty_max_score_units": 2.0,
+    "near_black_fraction_floor": 0.5,
+    "near_black_luminance_threshold": 0.05,
+    "noise_high_frequency_floor": 0.2,
+    "noise_metric": "high-frequency energy excess times spectral-flatness gate",
+    "noise_penalty_max_score_units": 2.0
+  },
+  "representation": "pixel",
+  "score_objective": "maximize mean LAION aesthetic score minus flat-color, near-black-area, and noise-like penalties",
+  "status": "complete",
+  "steps": 10000
+}

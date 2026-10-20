@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "status": "completed",
+  "paused_for_screen": false,
+  "steps": 16000,
+  "requested_step_cap": 16000,
+  "tokens": 2097152000,
+  "training_seconds": 37807.6723454998,
+  "target_training_seconds": null,
+  "training_seconds_overshoot": null,
+  "lr_trace": "steps.jsonl",
+  "candidate_schedule": "step cosine to 0.1 over the requested step horizon with 100-update warmup"
+}

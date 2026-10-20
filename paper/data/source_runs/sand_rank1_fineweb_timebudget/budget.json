@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "status": "completed",
+  "paused_for_screen": false,
+  "steps": 15106,
+  "requested_step_cap": 16000,
+  "tokens": 1979973632,
+  "training_seconds": 37808.94166525523,
+  "target_training_seconds": 37807.6723454998,
+  "training_seconds_overshoot": 1.2693197554326616,
+  "lr_trace": "steps.jsonl",
+  "candidate_schedule": "full cosine to 0.1 over training_seconds; warmup fraction min(100,max(1,steps//10))/steps; stop at training_seconds and log final update overshoot"
+}

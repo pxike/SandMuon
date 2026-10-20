@@ -1,0 +1,24 @@
+{
+  "accepted": true,
+  "arms": [
+    "baseline",
+    "aligned",
+    "scrambled",
+    "mean_half",
+    "diagonal_a",
+    "b_tempered",
+    "b_shrink",
+    "b_fast",
+    "b_slow",
+    "aligned_tempered"
+  ],
+  "errors": [],
+  "intentional_optimizer_differences": [
+    "b_identity_shrinkage",
+    "b_inverse_exponent",
+    "centered_direction",
+    "mean_offdiagonal_strength",
+    "scrambled_direction",
+    "statistic_beta_b"
+  ]
+}

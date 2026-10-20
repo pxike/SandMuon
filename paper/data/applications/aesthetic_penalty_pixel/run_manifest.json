@@ -1,0 +1,106 @@
+{
+  "batch_size_requested": 8,
+  "batch_size_starting": 8,
+  "checkpoint_interval_steps": 250,
+  "clip_model": "openai/clip-vit-large-patch14",
+  "clip_revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
+  "generated_images_are_not_backpropagated_through_scorer": true,
+  "image_conditioning": null,
+  "image_size": 64,
+  "initial_weights_checkpoint": "/home/hamzakharbouch/ODL/vast_outputs/20261013-210930-790076508/live_backup/benchmarks/aesthetic_overfit/vast_20261013_211126_utc/pixel/sandmuon/best_weights.pt",
+  "max_seconds_per_optimizer": 0,
+  "max_steps_per_optimizer": 10000,
+  "model": "ScoreOnlyGenerator",
+  "model_parameters": 12768259,
+  "optimizer_bundle_sha256": null,
+  "optimizer_learning_rates": {
+    "adamw": 0.0002,
+    "muon": 0.005,
+    "sandmuon": {
+      "end": 0.01,
+      "fixed_lr": null,
+      "schedule": "cosine",
+      "start": 0.5,
+      "steps": 2000
+    }
+  },
+  "optimizer_order": [
+    "sandmuon"
+  ],
+  "optimizer_state": "restored from full resume checkpoint",
+  "penalties": {
+    "flat_penalty_max_score_units": 2.0,
+    "flat_std_floor": 0.06,
+    "near_black_area_penalty_max_score_units": 2.0,
+    "near_black_fraction_floor": 0.5,
+    "near_black_luminance_threshold": 0.05,
+    "noise_high_frequency_floor": 0.2,
+    "noise_metric": "high-frequency energy excess times spectral-flatness gate",
+    "noise_penalty_max_score_units": 2.0
+  },
+  "policy_gradient": "Gaussian score-function estimator over stochastic hidden activations and output actions",
+  "representation": "pixel",
+  "representation_details": null,
+  "resume_checkpoint": "/home/hamzakharbouch/ODL/outputs/aesthetic_penalty_local_20261014/sandmuon/latest_resume.pt",
+  "score_feedback_only": true,
+  "score_objective": "maximize mean LAION aesthetic score minus flat-color, near-black-area, and noise-like penalties",
+  "scorer": "LAION-Aesthetics V2 linear predictor over normalized OpenAI CLIP ViT-L/14 image embeddings",
+  "scorer_weights_sha256": "2cd4e60f4f24ae3bcd57b847b13c1f3ba27edc28cc1a7f9ce74ee9f421243cba",
+  "scorer_weights_url": "https://raw.githubusercontent.com/LAION-AI/aesthetic-predictor/6d122adad522ab246644d9dc1c6d7a3810ee255f/sa_0_4_vit_l_14_linear.pth",
+  "seed": 26013,
+  "status": "complete",
+  "stop_rule": "requested update count; no wall-clock cap when max-seconds is zero",
+  "summaries": [
+    {
+      "best_adjusted_objective_loss_minus_mean_reward": -1.8601040840148926,
+      "best_evaluation_mean_adjusted_reward": 1.8601040840148926,
+      "best_evaluation_mean_raw_aesthetic_score": 3.183201313018799,
+      "elapsed_seconds": 16768.049,
+      "last_adjusted_objective_loss_minus_mean_reward": -1.1854559183120728,
+      "last_evaluation_mean_adjusted_reward": 1.1854559183120728,
+      "last_evaluation_mean_raw_aesthetic_score": 2.628035545349121,
+      "learning_rate_schedule": {
+        "end": 0.01,
+        "start": 0.5,
+        "steps": 2000,
+        "then": "hold at end rate",
+        "type": "cosine"
+      },
+      "optimizer": "sandmuon",
+      "optimizer_provenance": {
+        "activation_statistics": "exact input-patch diagonal second moments",
+        "auxiliary_optimizer": "canonical AdamW, LR ratio .1",
+        "auxiliary_parameters": 41987,
+        "canonical_class": "odl.optim.diagonal_weighted_pe.DiagonalWeightedPE",
+        "canonical_step_reused": true,
+        "capture_path": "bound forward wrapper; covers module() and direct module.forward()",
+        "conv_layers": 15,
+        "cotangent_statistics": "real-loss output-channel diagonal second moments",
+        "matrix_blocks": 1038,
+        "matrix_layout": "one [out/group, in/group*kh*kw] matrix per Conv group",
+        "matrix_momentum": 0.8,
+        "matrix_parameters": 12726272,
+        "optimizer": "ODL SAND-Muon with IRO grouped-Conv adapter",
+        "s8_backend": "same S8 polynomial in FP16 CUDA GEMMs (T4 fallback)",
+        "statistics_beta": 0.97
+      },
+      "parameter_count": 12768259,
+      "penalties": {
+        "flat_penalty_max_score_units": 2.0,
+        "flat_std_floor": 0.06,
+        "near_black_area_penalty_max_score_units": 2.0,
+        "near_black_fraction_floor": 0.5,
+        "near_black_luminance_threshold": 0.05,
+        "noise_high_frequency_floor": 0.2,
+        "noise_metric": "high-frequency energy excess times spectral-flatness gate",
+        "noise_penalty_max_score_units": 2.0
+      },
+      "representation": "pixel",
+      "score_objective": "maximize mean LAION aesthetic score minus flat-color, near-black-area, and noise-like penalties",
+      "status": "complete",
+      "steps": 10000
+    }
+  ],
+  "training_captions": 0,
+  "training_images": 0
+}

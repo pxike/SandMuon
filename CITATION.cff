@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use SandMuon, cite the accompanying SAND-Muon manuscript."
+title: "SandMuon: Diagonal Sensitivity-Weighted Muon with Compensated S8"
+type: software
+authors:
+  - family-names: Kharbouch
+    given-names: Hamza
+    email: hamza.kharbouch.work@gmail.com
+license: MIT
+version: 0.1.0
+
+repository-code: https://github.com/pxike/SandMuon

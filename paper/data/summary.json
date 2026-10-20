@@ -1,0 +1,437 @@
+{
+  "application_runs": {
+    "aesthetic_penalty_pixel": {
+      "best_adjusted_objective_loss_minus_mean_reward": -1.8601040840148926,
+      "best_evaluation_mean_adjusted_reward": 1.8601040840148926,
+      "best_evaluation_mean_raw_aesthetic_score": 3.183201313018799,
+      "elapsed_seconds": 16768.049,
+      "last_adjusted_objective_loss_minus_mean_reward": -1.1854559183120728,
+      "last_evaluation_mean_adjusted_reward": 1.1854559183120728,
+      "last_evaluation_mean_raw_aesthetic_score": 2.628035545349121,
+      "learning_rate_schedule": {
+        "end": 0.01,
+        "start": 0.5,
+        "steps": 2000,
+        "then": "hold at end rate",
+        "type": "cosine"
+      },
+      "optimizer": "sandmuon",
+      "optimizer_provenance": {
+        "activation_statistics": "exact input-patch diagonal second moments",
+        "auxiliary_optimizer": "canonical AdamW, LR ratio .1",
+        "auxiliary_parameters": 41987,
+        "canonical_class": "odl.optim.diagonal_weighted_pe.DiagonalWeightedPE",
+        "canonical_step_reused": true,
+        "capture_path": "bound forward wrapper; covers module() and direct module.forward()",
+        "conv_layers": 15,
+        "cotangent_statistics": "real-loss output-channel diagonal second moments",
+        "matrix_blocks": 1038,
+        "matrix_layout": "one [out/group, in/group*kh*kw] matrix per Conv group",
+        "matrix_momentum": 0.8,
+        "matrix_parameters": 12726272,
+        "optimizer": "ODL SAND-Muon with IRO grouped-Conv adapter",
+        "s8_backend": "same S8 polynomial in FP16 CUDA GEMMs (T4 fallback)",
+        "statistics_beta": 0.97
+      },
+      "parameter_count": 12768259,
+      "penalties": {
+        "flat_penalty_max_score_units": 2.0,
+        "flat_std_floor": 0.06,
+        "near_black_area_penalty_max_score_units": 2.0,
+        "near_black_fraction_floor": 0.5,
+        "near_black_luminance_threshold": 0.05,
+        "noise_high_frequency_floor": 0.2,
+        "noise_metric": "high-frequency energy excess times spectral-flatness gate",
+        "noise_penalty_max_score_units": 2.0
+      },
+      "representation": "pixel",
+      "score_objective": "maximize mean LAION aesthetic score minus flat-color, near-black-area, and noise-like penalties",
+      "status": "complete",
+      "steps": 10000
+    },
+    "aesthetic_transformer": {
+      "architecture": "transformer",
+      "best_adjusted_objective_loss_minus_mean_reward": -2.7186474800109863,
+      "best_evaluation_mean_adjusted_reward": 2.7186474800109863,
+      "best_evaluation_mean_raw_aesthetic_score": 3.125479221343994,
+      "elapsed_seconds": 30899.891,
+      "last_adjusted_objective_loss_minus_mean_reward": -2.5312259197235107,
+      "last_evaluation_mean_adjusted_reward": 2.5312259197235107,
+      "last_evaluation_mean_raw_aesthetic_score": 2.936769962310791,
+      "learning_rate_schedule": {
+        "end": 0.01,
+        "start": 0.5,
+        "steps": 2000,
+        "then": "hold at end rate",
+        "type": "cosine"
+      },
+      "optimizer": "sandmuon",
+      "optimizer_provenance": {
+        "activation_statistics": "exact flattened Linear input diagonal second moments",
+        "attention_statistics": "K/V activation moments share Q projection statistics",
+        "auxiliary_optimizer": "canonical AdamW, LR ratio .1",
+        "auxiliary_parameters": 183744,
+        "canonical_class": "odl.optim.diagonal_weighted_pe.DiagonalWeightedPE",
+        "canonical_step_reused": true,
+        "cotangent_statistics": "real-loss Linear output diagonal second moments",
+        "matrix_layout": "native transformer Linear weight matrices",
+        "matrix_momentum": 0.8,
+        "matrix_parameters": 12386304,
+        "optimizer": "ODL SAND-Muon on transformer Linear layers",
+        "s8_backend": "same S8 polynomial in FP16 CUDA GEMMs (Turing fallback)",
+        "statistics_beta": 0.97,
+        "transformer_linear_matrices": 42
+      },
+      "parameter_count": 12570048,
+      "penalties": {
+        "flat_penalty_max_score_units": 2.0,
+        "flat_std_floor": 0.06,
+        "near_black_area_penalty_max_score_units": 2.0,
+        "near_black_fraction_floor": 0.5,
+        "near_black_luminance_threshold": 0.05,
+        "noise_high_frequency_floor": 0.2,
+        "noise_metric": "high-frequency energy excess times spectral-flatness gate",
+        "noise_penalty_max_score_units": 2.0
+      },
+      "representation": "pixel",
+      "score_objective": "maximize mean LAION aesthetic score minus flat-color, near-black-area, and noise-like penalties",
+      "status": "complete",
+      "steps": 10000
+    },
+    "comparison_status": "single-optimizer application feasibility only; no optimizer controls; these FP16 fallback runs are separate from the BF16 FineWeb production protocol; incomplete pixel-query continuation excluded",
+    "execution_notes": {
+      "aesthetic_penalty_pixel": "10,000-step completed run resumed from a saved checkpoint; S8 polynomial in FP16 CUDA GEMMs (T4 fallback)",
+      "aesthetic_transformer": "10,000-step completed run from random initialization; S8 polynomial in FP16 CUDA GEMMs (Turing fallback)"
+    }
+  },
+  "centered_screen": {
+    "arms": [
+      {
+        "arm": "baseline",
+        "official_validation_loss": 5.8719000816345215,
+        "steps": 1000
+      },
+      {
+        "arm": "aligned",
+        "official_validation_loss": 5.883294105529785,
+        "steps": 1000
+      },
+      {
+        "arm": "scrambled",
+        "official_validation_loss": 5.875241279602051,
+        "steps": 1000
+      },
+      {
+        "arm": "mean_half",
+        "official_validation_loss": 5.875455379486084,
+        "steps": 1000
+      },
+      {
+        "arm": "diagonal_a",
+        "official_validation_loss": 5.864832401275635,
+        "steps": 1000
+      },
+      {
+        "arm": "b_tempered",
+        "official_validation_loss": 5.86798620223999,
+        "steps": 1000
+      },
+      {
+        "arm": "b_shrink",
+        "official_validation_loss": 5.868086814880371,
+        "steps": 1000
+      },
+      {
+        "arm": "b_fast",
+        "official_validation_loss": 5.878993988037109,
+        "steps": 1000
+      },
+      {
+        "arm": "b_slow",
+        "official_validation_loss": 5.868593692779541,
+        "steps": 1000
+      },
+      {
+        "arm": "aligned_tempered",
+        "official_validation_loss": 5.873381614685059,
+        "steps": 1000
+      }
+    ],
+    "campaign_id": "sand-centered-a828f9905b4f",
+    "comparison_guard": {
+      "accepted": true,
+      "arms": [
+        "baseline",
+        "aligned",
+        "scrambled",
+        "mean_half",
+        "diagonal_a",
+        "b_tempered",
+        "b_shrink",
+        "b_fast",
+        "b_slow",
+        "aligned_tempered"
+      ],
+      "errors": [],
+      "intentional_optimizer_differences": [
+        "b_identity_shrinkage",
+        "b_inverse_exponent",
+        "centered_direction",
+        "mean_offdiagonal_strength",
+        "scrambled_direction",
+        "statistic_beta_b"
+      ]
+    },
+    "completed_utc": "2026-10-11T11:19:37.768671Z",
+    "matrix_parameters": 4915200,
+    "model_parameters": 21055680,
+    "precision_and_kernel": "FP32 model, gradients, optimizer states, and eager polynomial S8; no compensated BF16 production kernel",
+    "status": "complete",
+    "weights_saved": false
+  },
+  "comparison_caveats": {
+    "all_runs_share": [
+      "model config and parameter count",
+      "seed 1337",
+      "FineWeb-Edu GPT-2 token shards at pinned revision",
+      "effective batch 128",
+      "microbatch 16",
+      "context 1024",
+      "LR 0.01",
+      "RTX 3090 class",
+      "FP32 parameters/state with BF16 forward/optimizer matrix products"
+    ],
+    "design": "Cross-run, cross-host full-recipe comparison; not a matched isolated optimizer/geometry ablation.",
+    "material_differences": [
+      "SAND candidate uses matrix momentum 0.8; archived Muon/PE/S8 references use the vanilla Muon configuration (momentum 0.95).",
+      "SAND uses A EMA 0.97 of diagonal centered activation variance plus activation-mean outer product, exact rank-one whitening; B EMA 0.97 of full-effective-batch relative real-cotangent square shape; archived references do not use this geometry.",
+      "SAND uses deployed compensated packed-prefix S8; PE uses published five-stage Polar Express; vanilla Muon uses the raw Muon polarizer; S8 uses the fitted five-stage S8 recipe.",
+      "SAND uses a wall-clock cosine schedule and stopped at the PE training-time budget (15,106 updates); PE, raw Muon and S8 use fixed 16,000-update cosine schedules.",
+      "PE's schedule warms up for 100 updates. SAND preserves the 100/16,000 warmup fraction in its wall-clock schedule, about 236.3 seconds of the PE reference budget; this is not 100 literal SAND updates.",
+      "The archived reference records do not retain provider host IDs; this public bundle omits provider identifiers.",
+      "Auxiliary AdamW differs: SAND records LR ratio 0.1, betas (0.9,0.999), weight decay 0.01; the archived S8 paper protocol records LR ratio 0.1, betas (0.9,0.95), weight decay 0."
+    ],
+    "sand_final_loss_at_equal_time": {
+      "gap_sand_minus_pe": -0.026125110685825348,
+      "interpretation": "Descriptive interpolation context only; differences in optimizer and schedule prevent a causal or strict matched claim.",
+      "pe_reference_nearest_record": {
+        "loss": 3.3040634766221046,
+        "step": 16000,
+        "training_seconds": 37807.6723454998
+      },
+      "sand_loss": 3.2779383659362793,
+      "sand_training_seconds": 37808.94166525523
+    },
+    "source_integrity": {
+      "centered_screen_source_checks": {
+        "odl/models/gpt2.py": {
+          "current_sha256": "6b1ef7d17380d29f26ed21ec577de6e454d42fb3ab0f7ce57bd04d8371d3c27e",
+          "matches_current": true,
+          "recorded_sha256": "6b1ef7d17380d29f26ed21ec577de6e454d42fb3ab0f7ce57bd04d8371d3c27e"
+        },
+        "odl/ops/chunked_cross_entropy.py": {
+          "current_sha256": "dbfb1582b9d596eea1db3e0407644b3be5687d1a709e827e654881918bd2af77",
+          "matches_current": true,
+          "recorded_sha256": "dbfb1582b9d596eea1db3e0407644b3be5687d1a709e827e654881918bd2af77"
+        },
+        "paper/s8/data/completed/s8_manifest.json": {
+          "current_sha256": "91210e57a26dc89498f6fea50daf0202aa2794daf06f9408ed5ac6f950dc921f",
+          "matches_current": true,
+          "recorded_sha256": "91210e57a26dc89498f6fea50daf0202aa2794daf06f9408ed5ac6f950dc921f"
+        },
+        "research/render_reset/data.py": {
+          "current_sha256": "86d973b8ea874d0012ddf15887702407e1ff6fd745c63cec4da8dcdbfbe409af",
+          "matches_current": true,
+          "recorded_sha256": "86d973b8ea874d0012ddf15887702407e1ff6fd745c63cec4da8dcdbfbe409af"
+        },
+        "research_go_weighted_poly/centered_a_sand.py": {
+          "current_sha256": "7781b2731024f7e651795e2214b9af94a8b6232176ec7639247f0788173a93bf",
+          "matches_current": true,
+          "recorded_sha256": "7781b2731024f7e651795e2214b9af94a8b6232176ec7639247f0788173a93bf"
+        },
+        "research_go_weighted_poly/sand_centered_pilot.py": {
+          "current_sha256": "3dbe639dc8ff6a0a29d30b1e117e693ea075b5e14f5be048b83acff3e2214f5f",
+          "matches_current": true,
+          "recorded_sha256": "3dbe639dc8ff6a0a29d30b1e117e693ea075b5e14f5be048b83acff3e2214f5f"
+        }
+      },
+      "pe_baseline_budget_sha256": "c5c8a40acbd30fc440c9611eaf6cddfbacef6529bf29e327937da44e117881e4",
+      "pe_baseline_manifest_sha256": "dca8efa0bdc5bbed5ae7baa3846060d57e285a56cdf2e4a06976a13017a0a1f7",
+      "pe_baseline_validation_sha256": "d6ff84f0cd62c218733e554074567f9f20a65d92b724c7aadfa257bd036db811",
+      "s8_completed_source_checks": {
+        "odl/ops/bf16_compensated_mm.py": true,
+        "odl/ops/dense_s8_compensated.py": true,
+        "odl/ops/dense_s8_fast.py": true,
+        "odl/ops/dense_s8_fused.py": true,
+        "odl/ops/dense_s8_minimax.py": true,
+        "research_s8_refit/ripple_ablation/experiment.json": true,
+        "research_s8_refit/ripple_ablation/recipe.py": true,
+        "research_s8_refit/ripple_ablation/recipe_hashes.json": true,
+        "research_s8_refit/ripple_ablation/trainer.py": true
+      },
+      "sand_diagonal_optimizer_current_sha256": "d74e7c93dd4ad04cf702d0ec28582bd884204c1f1243a332bf6b6814793452d0",
+      "sand_kernel_current_sha256": "299aaa14f807f7d3a41558556cda27a42a6140fbc287e3c471a1149f2deaf05c",
+      "sand_recorded_diagonal_optimizer_sha256": "d74e7c93dd4ad04cf702d0ec28582bd884204c1f1243a332bf6b6814793452d0",
+      "sand_recorded_kernel_sha256": "299aaa14f807f7d3a41558556cda27a42a6140fbc287e3c471a1149f2deaf05c",
+      "sand_run_muon_100m_current_sha256": "b18d8c40a09d7dee991504ef29367283c5c1cbf93dbac61a8a9452f9b38c982a",
+      "sand_run_muon_100m_recorded_sha256": "66ed4e161fb1dd76cabb6191047d4830e5851fd3ef6f82fb30ea9f69da4018f3",
+      "sand_runner_hash_matches_current": false
+    },
+    "time_validation_guard": {
+      "every_steps": 2000,
+      "interpretation": "Run completed at the wall-clock budget without the guard triggering. Validation checkpoints were observed by the run-control rule and are exploratory, not a blind test set.",
+      "patience": 1,
+      "reference": "PE baseline validation trace, linearly interpolated at equal training time",
+      "scheduled_checks": [
+        {
+          "matched_time_gap": -0.014016520526000775,
+          "step": 2000
+        },
+        {
+          "matched_time_gap": -0.033335864791974146,
+          "step": 4000
+        },
+        {
+          "matched_time_gap": -0.042693914912959485,
+          "step": 6000
+        },
+        {
+          "matched_time_gap": -0.04765376559943846,
+          "step": 8000
+        },
+        {
+          "matched_time_gap": -0.041736167446770445,
+          "step": 10000
+        },
+        {
+          "matched_time_gap": -0.02392974078844823,
+          "step": 12000
+        },
+        {
+          "matched_time_gap": -0.011981338377958561,
+          "step": 14000
+        }
+      ],
+      "triggered": false
+    }
+  },
+  "metric": "validation cross-entropy in nats per GPT-2 token",
+  "model": {
+    "context": 1024,
+    "heads": 12,
+    "layers": 9,
+    "parameters": 103176192,
+    "width": 768
+  },
+  "results": [
+    {
+      "completed_steps": 16000,
+      "context": 1024,
+      "dataset": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+      "dataset_revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+      "delta_vs_pe_final_loss": 0.00651976466178894,
+      "effective_batch_sequences": 128,
+      "final_validation_loss": 3.3105832412838936,
+      "final_validation_seconds": 36890.375593878794,
+      "final_validation_step": 16000,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "label": "raw_muon",
+      "lr": 0.01,
+      "microbatch_sequences": 16,
+      "momentum": 0.95,
+      "optimizer": "muon_raw",
+      "parameters": 103176192,
+      "precision": "FP32 weights/states, BF16 autocast forward/backward and NS products",
+      "requested_step_cap": 16000,
+      "schedule": "100-update linear warmup, cosine to 0.1; candidate arms use full wall-clock cosine over baseline measured budget with matching warmup fraction",
+      "seconds": 36890.375593878794,
+      "seed": 1337,
+      "source_run_dir": "data/source_runs/s8_completed/muon",
+      "tokenizer": "GPT-2 token IDs; loss in nats per token",
+      "training_tokens": 2097152000,
+      "validation_points": 81
+    },
+    {
+      "completed_steps": 16000,
+      "context": 1024,
+      "dataset": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+      "dataset_revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+      "delta_vs_pe_final_loss": 0.0,
+      "effective_batch_sequences": 128,
+      "final_validation_loss": 3.3040634766221046,
+      "final_validation_seconds": 37807.6723454998,
+      "final_validation_step": 16000,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "label": "polar_express",
+      "lr": 0.01,
+      "microbatch_sequences": 16,
+      "momentum": 0.95,
+      "optimizer": "muon_raw_polar_express_published",
+      "parameters": 103176192,
+      "precision": "FP32 weights/states, BF16 autocast forward/backward and NS products",
+      "requested_step_cap": 16000,
+      "schedule": "100-update linear warmup, cosine to 0.1 over the fixed step horizon",
+      "seconds": 37807.6723454998,
+      "seed": 1337,
+      "source_run_dir": "data/source_runs/s8_completed/pe",
+      "tokenizer": "GPT-2 token IDs; loss in nats per token",
+      "training_tokens": 2097152000,
+      "validation_points": 82
+    },
+    {
+      "completed_steps": 16000,
+      "context": 1024,
+      "dataset": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+      "dataset_revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+      "delta_vs_pe_final_loss": -0.002522110939025879,
+      "effective_batch_sequences": 128,
+      "final_validation_loss": 3.3015413656830788,
+      "final_validation_seconds": 40051.244095730595,
+      "final_validation_step": 16000,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "label": "s8",
+      "lr": 0.01,
+      "microbatch_sequences": 16,
+      "momentum": 0.95,
+      "optimizer": "muon_raw_s8_ripple",
+      "parameters": 103176192,
+      "precision": "FP32 weights/states, BF16 autocast forward/backward and NS products",
+      "requested_step_cap": 16000,
+      "schedule": "100-update linear warmup, cosine to 0.1 over the fixed step horizon",
+      "seconds": 40051.244095730595,
+      "seed": 1337,
+      "source_run_dir": "data/source_runs/s8_completed/s8",
+      "tokenizer": "GPT-2 token IDs; loss in nats per token",
+      "training_tokens": 2097152000,
+      "validation_points": 82
+    },
+    {
+      "completed_steps": 15106,
+      "context": 1024,
+      "dataset": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+      "dataset_revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+      "delta_vs_pe_final_loss": -0.026125110685825348,
+      "effective_batch_sequences": 128,
+      "final_validation_loss": 3.2779383659362793,
+      "final_validation_seconds": 37808.94166525523,
+      "final_validation_step": 15106,
+      "gpu": "NVIDIA GeForce RTX 3090",
+      "label": "sandmuon_rank1",
+      "lr": 0.01,
+      "microbatch_sequences": 16,
+      "momentum": 0.8,
+      "optimizer": "sand_muon_rank1",
+      "parameters": 103176192,
+      "precision": "FP32 weights/states, BF16 autocast forward/backward and NS products",
+      "requested_step_cap": 16000,
+      "schedule": "100-update linear warmup, cosine to 0.1; candidate arms use full wall-clock cosine over baseline measured budget with matching warmup fraction",
+      "seconds": 37808.94166525523,
+      "seed": 1337,
+      "source_run_dir": "data/source_runs/sand_rank1_fineweb_timebudget",
+      "tokenizer": "GPT-2 token IDs; loss in nats per token",
+      "training_tokens": 1979973632,
+      "validation_points": 77
+    }
+  ],
+  "title": "SandMuon FineWeb evidence audit"
+}

@@ -1,0 +1,86 @@
+{
+  "source_repository": "/home/hamzakharbouch/ODL",
+  "run_manifest": "vast_outputs/20260922-105255-736706896/benchmarks/sand_rank1_fineweb_timebudget/manifest.json",
+  "run_manifest_sha256": "d072727145d2b1313324250dd9fc12ef22949596a82621fc297d1fa4d3fc93ee",
+  "files": [
+    {
+      "path": "odl/optim/diagonal_weighted_pe.py",
+      "role": "optimizer",
+      "sha256": "d74e7c93dd4ad04cf702d0ec28582bd884204c1f1243a332bf6b6814793452d0",
+      "matches_run_manifest": true
+    },
+    {
+      "path": "odl/ops/dense_s8_compensated_fast.py",
+      "role": "deployed S8 wrapper",
+      "sha256": "b2536f11d2c7e11436d6bccb0fd1b4f434bade84ac1bb7e1037313809a1a3691",
+      "matches_run_manifest": true
+    },
+    {
+      "path": "odl/ops/dense_s8_compensated_packed_prefix.py",
+      "role": "packed-prefix path",
+      "sha256": "299aaa14f807f7d3a41558556cda27a42a6140fbc287e3c471a1149f2deaf05c",
+      "matches_run_manifest": true
+    },
+    {
+      "path": "odl/ops/bf16_compensated_mm_fast.py",
+      "role": "compensated matrix product",
+      "sha256": "fc426c8502f614eb1c31c295ed93514e0a23249d10d45878ce6e855ce49835db",
+      "matches_run_manifest": true
+    },
+    {
+      "path": "paper/s8/data/completed/s8_manifest.json",
+      "role": "coefficient manifest",
+      "sha256": "91210e57a26dc89498f6fea50daf0202aa2794daf06f9408ed5ac6f950dc921f",
+      "matches_run_manifest": true
+    },
+    {
+      "path": "odl/ops/bf16_compensated_mm.py",
+      "role": "transitive local import dependency",
+      "sha256": "34f0d9cc81ad51da2b71965650f717cb749b1ef9bae64d32a19e06945dc0a08d",
+      "matches_run_manifest": null
+    },
+    {
+      "path": "odl/ops/dense_s8_compensated.py",
+      "role": "transitive local import dependency",
+      "sha256": "970a66423fa690ddf0003b93bd820f4a2012db2fe37b43fdeb663ef6369741e1",
+      "matches_run_manifest": null
+    },
+    {
+      "path": "odl/ops/dense_s8_fast.py",
+      "role": "transitive local import dependency",
+      "sha256": "80b598f0f27b44ffda7e04420c65484839925c7c755fc3513082baa28e1bd438",
+      "matches_run_manifest": null
+    },
+    {
+      "path": "odl/ops/dense_s8_minimax.py",
+      "role": "transitive local import dependency",
+      "sha256": "e61b9ac3e601615b988ce3faad0e11e0e536ff8d414090af96ded188d8a2c209",
+      "matches_run_manifest": null
+    },
+    {
+      "path": "odl/ops/minimax_dense.py",
+      "role": "transitive local import dependency",
+      "sha256": "fb0ddaa74a0550c388f4c919eb3cca0a828b62646fb5a504b857a524d08ec71f",
+      "matches_run_manifest": null
+    },
+    {
+      "path": "odl/ops/minimax_gram_funnel.py",
+      "role": "transitive local import dependency",
+      "sha256": "419670ae51a2c9c093d01d635eb4f36aa5d855497fff9b5d7555343242ae78a4",
+      "matches_run_manifest": null
+    },
+    {
+      "path": "odl/optim/registry.py",
+      "role": "transitive local import dependency",
+      "sha256": "42991444fa305fbe1858fb635c40415ebffb9c7847fa256402a5296b0ad0f1d7",
+      "matches_run_manifest": null
+    }
+  ],
+  "external_runtime_dependencies": [
+    "PyTorch 2.6.0+cu124",
+    "Triton",
+    "broader ODL training/model packages",
+    "CUDA GPU"
+  ],
+  "note": "The run manifest hashes the optimizer and deployed S8 wrapper source; archived transitive files are byte-for-byte copies of their ODL source paths."
+}

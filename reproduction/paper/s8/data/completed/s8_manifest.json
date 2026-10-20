@@ -1,0 +1,144 @@
+{
+  "parameters": 103176192,
+  "config": {
+    "vocab_size": 50257,
+    "block_size": 1024,
+    "n_layer": 9,
+    "n_head": 12,
+    "n_embd": 768,
+    "dropout": 0.0,
+    "bias": true,
+    "residual_bus_mult": 1,
+    "residual_bus_stride": null
+  },
+  "args": {
+    "arm": "current",
+    "steps": 16000,
+    "schedule": "steps",
+    "microbatch": 16,
+    "batch_size": 128,
+    "seed": 1337,
+    "lr": 0.01,
+    "output": "benchmarks/s8_ripple_16k/current",
+    "optimizer": "muon_raw_s8_ripple",
+    "s8_output_mode": null,
+    "baseline": null,
+    "time_budget_only": false,
+    "budget_gap": null,
+    "budget_patience": 3,
+    "dense_s8_multiplier": null,
+    "validation_guard": null,
+    "transfer_from": null,
+    "dataset_revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+    "resume": false,
+    "stop_after_step": 2,
+    "aux_adam_lr": null,
+    "inspect": false
+  },
+  "dataset": "karpathy/fineweb-edu-100B-gpt2-token-shards",
+  "dataset_revision": "a33f75d78c7f74236fb03754ec1eb3cc77507d64",
+  "training_shards": [
+    "edu_fineweb_train_000001.bin",
+    "edu_fineweb_train_000002.bin",
+    "edu_fineweb_train_000003.bin",
+    "edu_fineweb_train_000004.bin",
+    "edu_fineweb_train_000005.bin",
+    "edu_fineweb_train_000006.bin",
+    "edu_fineweb_train_000007.bin",
+    "edu_fineweb_train_000008.bin",
+    "edu_fineweb_train_000009.bin",
+    "edu_fineweb_train_000010.bin",
+    "edu_fineweb_train_000011.bin",
+    "edu_fineweb_train_000012.bin",
+    "edu_fineweb_train_000013.bin",
+    "edu_fineweb_train_000014.bin",
+    "edu_fineweb_train_000015.bin",
+    "edu_fineweb_train_000016.bin",
+    "edu_fineweb_train_000017.bin",
+    "edu_fineweb_train_000018.bin",
+    "edu_fineweb_train_000019.bin",
+    "edu_fineweb_train_000020.bin",
+    "edu_fineweb_train_000021.bin"
+  ],
+  "baseline_sha256": null,
+  "resume_transfer": null,
+  "validation_references": {},
+  "optimizer": "muon_raw_s8_ripple",
+  "budget_stop": null,
+  "ns_steps": 5,
+  "tokens_per_step": 131072,
+  "precision": "FP32 weights/states, BF16 autocast forward/backward and NS products",
+  "schedule": "100-update linear warmup, cosine to 0.1 over the fixed step horizon",
+  "output_scale": {
+    "mode": "none",
+    "effective_k1": 1.0,
+    "target": "identity",
+    "step_clock": "optimizer_update"
+  },
+  "polar_express": null,
+  "s8_fit": {
+    "coefficients": [
+      [
+        11.062126275847973,
+        -56.051653229128085,
+        72.32081107619855
+      ],
+      [
+        4.100720073616268,
+        -2.9324183165353577,
+        0.5339692084282731
+      ],
+      [
+        3.930310192522361,
+        -2.873509793709714,
+        0.5366557527206212
+      ],
+      [
+        3.280567968245866,
+        -2.414925589994015,
+        0.48635134757825227
+      ],
+      [
+        2.282741575232451,
+        -1.6302296637355072,
+        0.40275720810675486
+      ]
+    ],
+    "margin": 1.35,
+    "compensated_first": true,
+    "arm": "current",
+    "fit_file": "research_s8_refit/ripple_ablation/experiment.json",
+    "native_gate_pass": false,
+    "research_status": "Local 72-matrix checks passed; target GPU preflight required and logged per run",
+    "failed_native_gates": null,
+    "fit_file_sha256": "d821e0516c3ad879528b0a19bd48728a335703f3be86fb019cd72d75dd2ed701",
+    "ops_sha256": {
+      "odl/ops/dense_s8_minimax.py": "e61b9ac3e601615b988ce3faad0e11e0e536ff8d414090af96ded188d8a2c209",
+      "odl/ops/dense_s8_fast.py": "e564467687b62cb21db656062f34ec4d593685860d3ee413e5140f9981c8e54b",
+      "odl/ops/dense_s8_fused.py": "7e83126d8ca9abcc6abce557c6ee6addcab9219ad5f58978288fad41495f7611"
+    }
+  },
+  "clock": "synchronized training updates including data transfer; excludes evaluation, checkpoint IO, startup and discarded compilation warmup",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "torch": "2.6.0+cu124",
+  "sources": {
+    "s8_resume_transfer.py": "93e198128e82fa0cc5d78dfefdb2041d6db544ea2bdb7643486b530301730d2c",
+    "validation_checkpoint_guard.py": "0051b88458f8b21f0e3231f8f5a8147e93c0202a2bb4c6bc1822160505459bf4",
+    "budget_stop.py": "a92bbc48ee137dee8433355e2793c45e152ef723c8c671bd571031acbf779426",
+    "run_muon_100m.py": "c5f2fc8b63503915890fb795e42bd9b503eca39d1794e121d4a67d83606f6a44",
+    "odl/models/gpt2.py": "6b1ef7d17380d29f26ed21ec577de6e454d42fb3ab0f7ce57bd04d8371d3c27e",
+    "odl/optim/muon.py": "3be3d3766cded073f8eac556e5b635ec2ff4b087f32812f4eb8bc6d087792145",
+    "run_s8_scale_ablation.py": "181e028933d37ee7c0b92ab51c10608db40e82a7ed4b0a5e6f16e389733c09d0",
+    "experiment_configs/s8_scale_ablation.json": "001fa325e52118e99b226addfc41880f6f36c264e95efc46692dbd739fcaae9d",
+    "research_s8_refit/ripple_ablation/recipe_hashes.json": "fc0d5ca873a486acd6575119d0dc9de05cc6e0479e09a5a293202575fbdd1afd",
+    "research_s8_refit/ripple_ablation/recipe.py": "ee280d7d4c7ce1ff9fc6a29a2bff5a269e0eeec5571d76b6c1ef99c15ed4a472",
+    "research_s8_refit/ripple_ablation/trainer.py": "c3c3d7446e127c97ca278db3e3ebc9ba97e36f101cd0029ea1ec525d449bbeac",
+    "research_s8_refit/ripple_ablation/train.py": "fce3ccb40e3ab4edf45624ecd8b5c05cce7d5d4119dd04307f65a46bde2438ec",
+    "odl/ops/dense_s8_compensated.py": "970a66423fa690ddf0003b93bd820f4a2012db2fe37b43fdeb663ef6369741e1",
+    "odl/ops/bf16_compensated_mm.py": "34f0d9cc81ad51da2b71965650f717cb749b1ef9bae64d32a19e06945dc0a08d",
+    "odl/ops/dense_s8_minimax.py": "e61b9ac3e601615b988ce3faad0e11e0e536ff8d414090af96ded188d8a2c209",
+    "odl/ops/dense_s8_fast.py": "e564467687b62cb21db656062f34ec4d593685860d3ee413e5140f9981c8e54b",
+    "odl/ops/dense_s8_fused.py": "7e83126d8ca9abcc6abce557c6ee6addcab9219ad5f58978288fad41495f7611",
+    "research_s8_refit/ripple_ablation/experiment.json": "d821e0516c3ad879528b0a19bd48728a335703f3be86fb019cd72d75dd2ed701"
+  }
+}
