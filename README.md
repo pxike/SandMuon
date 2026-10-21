@@ -10,6 +10,21 @@ For each selected linear layer, the optimizer accumulates activation second mome
 
 The optimizer applies a diagonal or rank-one left and right whitener to the Nesterov Muon source, evaluates the fixed five-stage S8 polynomial in the whitened coordinates, then maps the result back. The production aspect multiplier is applied before norm matching and cancels there; the final direction has Frobenius norm `sqrt(output_rows)`. Matrix momentum is 0.8. Other trainable parameters use AdamW at 0.1 times the supplied learning rate, with betas `(0.9, 0.999)` and weight decay `0.01`.
 
+## Connection to S8Muon
+
+SandMuon reuses the finite polar-approximation recipe from the separate
+[S8Muon project](https://github.com/pxike/S8Muon), described in Hamza Kharbouch's
+manuscript *Rebalancing Weak Singular Modes in Finite-Budget Muon*. That recipe
+combines Schatten-8 input normalization from CANS, five independently fitted
+polynomial stages, and compensated BF16 arithmetic in the first stage of the
+historical training implementation. The S8Muon repository contains the optimized
+CUDA implementation and [citation metadata](https://github.com/pxike/S8Muon/blob/main/CITATION.cff).
+
+The S8 work concerns the finite approximation of the polar map. SandMuon adds
+activation and output-cotangent statistics and uses the S8 map in the resulting
+whitened coordinates. The SandMuon manuscript cites the S8 project and its prior
+work; the historical full-recipe results do not isolate normalization alone.
+
 ## Install and use
 
 Install PyTorch for your platform, then install this package from the repository root:
