@@ -1,0 +1,22 @@
+{
+  "title": "SandMuon: Diagonal Sensitivity-Weighted Muon with Compensated S8",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Kharbouch, Hamza",
+      "affiliation": "Independent Researcher, Morocco"
+    }
+  ],
+  "description": "<p>SandMuon is a standalone PyTorch package for diagonal sensitivity-weighted Muon. It combines diagonal activation second moments and squared real-loss output cotangents, an analytic rank-one activation-mean correction, and an S8 spectral map.</p><p>This archive includes a portable eager FP32 reference, the historical GPU implementation, compact run evidence, and the preliminary manuscript <em>Sand-Muon: Inexpensive Sensitivity Geometry for Spectral Optimization</em>, by Hamza Kharbouch.</p><p>The manuscript reports a single-seed 103M-parameter FineWeb-Edu case study. The comparison recipes differ in momentum, polarization, auxiliary optimizer, and schedule. These whole-recipe observations do not isolate the optimizer's effect or establish general superiority. The portable FP32 implementation differs numerically and in speed from the archived BF16 GPU implementation.</p><p>Source repository: <a href=\"https://github.com/pxike/SandMuon\">https://github.com/pxike/SandMuon</a>.</p>",
+  "version": "0.1.0",
+  "license": "mit",
+  "access_right": "open",
+  "keywords": [
+    "machine learning",
+    "optimization",
+    "Muon",
+    "diagonal preconditioning",
+    "PyTorch"
+  ],
+  "language": "eng"
+}
